@@ -1,6 +1,7 @@
 package com.chuckerteam.chucker.api
 
 import android.content.Context
+import android.util.Log
 import androidx.annotation.VisibleForTesting
 import com.chuckerteam.chucker.internal.data.entity.HttpTransaction
 import com.chuckerteam.chucker.internal.support.CacheDirectoryProvider
@@ -95,6 +96,7 @@ public class ChuckerInterceptor private constructor(
                 collector.onResponseReceived(transaction)
                 throw e
             }
+        Log.d("FlutterHttpLog1", "Response: $response")
         return if (shouldProcessTheRequest) {
             responseProcessor.process(response, transaction)
         } else {
